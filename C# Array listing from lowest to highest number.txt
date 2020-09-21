@@ -1,0 +1,19 @@
+int[] manoNumeriai = {9,6,1,7};
+            int temp;
+
+            for (int i = 0; i < manoNumeriai.Length - 1; i++)
+            {
+                for (int j = i + 1; j < manoNumeriai.Length; j++)
+                {
+                    if (manoNumeriai[i] > manoNumeriai[j])
+                    {
+                        temp = manoNumeriai[i];
+                        manoNumeriai[i] = manoNumeriai[j];
+                        manoNumeriai[j] = temp;
+                    }
+                }
+            }
+            foreach (int b in manoNumeriai)
+            {
+                Console.WriteLine(b);
+            }
