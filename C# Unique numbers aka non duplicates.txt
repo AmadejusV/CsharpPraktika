@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+
+namespace UniqueNumbers2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("How many numbers would you like to pick?");
+            int howMany = int.Parse(Console.ReadLine()); //picking length of array
+            int[] array = new int[howMany];
+            array[0] = 0;
+            Console.WriteLine("Enter the numbers:");
+            for(int n=0; n < howMany; n++)               //picking a number for each index of an array
+            {
+                if (array[0] != 0)
+                {
+                    Console.WriteLine("Enter another one:");
+                }
+                array[n] = int.Parse(Console.ReadLine());
+            }
+            List<int> numbers = new List<int>(array);    //converting array to a list
+            for (int i = 0; i < numbers.Count; i++)      //checking for duplicates with nested loop
+            {
+                for (int j = i + 1; j < numbers.Count; j++)
+                {
+                    if (numbers[i] == numbers[j])
+                    {
+                        numbers.RemoveAt(j);             //removing found duplicate from list at index "j"
+                    }
+                }
+            }
+            Console.Write("Non duplicates are: [ ");
+            foreach (int num in numbers)                 //printing each member of an altered list
+            {
+                Console.Write(num+" ");
+            }
+            Console.Write("]");
+        }
+    }
+}
